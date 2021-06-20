@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- <style type="text/css">
+    @import url(./common.css);
+</style> -->
+<link rel="stylesheet" href="./common.css">
+<body>
+    <div class="father clearfix"> 
+       <div class="son1">
+
+       </div>
+       <div class="son2">
+
+       </div>
+       <div class="son3">
+
+       </div>
+    </div>
+    <ul><li>1</li><li>2</li><li>3</li></ul>
+</body>
+<script>
+    // var user  = 'hjjjaj';
+    // function first (){
+    //     console.log(user)
+    // }
+    // function second(){
+    //     var user= 'yyy';
+    //     first();
+    // }
+    // second()
+
+    let arrlis  =  document.getElementsByTagName('li');
+    // Object.prototype.toString
+    let c = Array.prototype.slice.call(arrlis,1,2);
+    console.log(c,'Object.prototype.toString')
+    let arr  =  [1,89,3,3,6,3];
+    let max  = Math.max.call(null,...arr);
+    console.log(max,'Object.prototype.toString')
+let type  = Object.prototype.toString.call(arr);
+let reg  = /\s(\w+)/
+reg.exec(type)
+    console.log(reg.exec(type))
+
+
+//     function funA(){
+//   var a = 10;  // funA的活动对象之中;
+//   return function(){   //匿名函数的活动对象;
+//         alert(a);
+//   }
+// }
+// var b = funA();
+// b();  //10
+
+
+// function outerFn(){
+//   var i = 0; 
+//   function innerFn(){
+//       i++;
+//       console.log(i);
+//   }
+//   return innerFn;
+// }
+// var inner = outerFn();  //每次外部函数执行的时候,都会开辟一块内存空间,外部函数的地址不同，都会重新创建一个新的地址
+// inner();
+// inner();
+// inner();
+// var inner2 = outerFn();
+// inner2();
+// inner2();
+// inner2(); 
+
+
+
+// var i = 0;
+// function outerFn(){
+//   function innnerFn(){
+//        i++;
+//        console.log(i);
+//   }
+//   return innnerFn;
+// }
+// var inner1 = outerFn();
+// var inner2 = outerFn();
+// inner1();
+// inner2(); 
+// inner1();
+// inner2();  
+
+
+
+// function fn(){
+// 	var a = 3;
+// 	return function(){
+// 		return  ++a;                                     
+// 	}
+// }
+// alert(fn()());  
+// alert(fn()());  
+
+
+
+// function outerFn(){
+// var i = 0;
+//   function innnerFn(){
+//       i++;
+//       console.log(i);
+//   }
+//   return innnerFn;
+// }
+// var inner1 = outerFn();
+// var inner2 = outerFn();
+// inner1();
+// inner2();
+// inner1();
+// inner2(); 
+
+
+
+
+// (function() { 
+//   var m = 0; 
+//   function getM() { return m; } 
+//   function seta(val) { m = val; } 
+//   window.g = getM; 
+//   window.f = seta; 
+// })(); 
+// f(100);
+// console.info(g());
+
+
+
+// function a() { 
+//   var i = 0; 
+//   function b() { alert(++i); } 
+//   return b; 
+// } 
+// var c = a(); 
+// c();      
+// c(); 
+
+
+// function f() { 
+//   var count = 0; 
+//   return  function() { 
+//       count++; 
+//       console.info(count); 
+//   } 
+// } 
+// var t1 = f();
+// t1();    
+// t1();     
+// t1(); 
+
+
+// var add = function(x) { 
+//   var sum = 1; 
+//   var tmp = function(x) { 
+//       sum = sum + x; 
+//       return tmp;    
+//   } 
+//   tmp.toString = function() { 
+//       return sum; 
+//   }
+//   return tmp; 
+// } 
+// alert(add(1)(2)(3));     
+
+
+
+// var lis = document.getElementsByTagName("li");
+// for(var i=0;i<lis.length;i++){
+//   (function(i){
+//       lis[i].onclick = function(){
+//            console.log(i);
+//       };
+//   })(i);       //事件处理函数中闭包的写法
+// }  
+
+
+// function m1(){
+//      var x = 1;
+//      return function(){
+//           console.log(++x);
+//      }
+// }
+ 
+// m1()();  
+// m1()();  
+// m1()();   
+ 
+// var m2 = m1();
+// m2();   
+// m2();   
+// m2();  
+
+
+
+// var  fn=(function(){
+//    var  i=10;
+//    function  fn(){
+//       console.log(++i);
+//    }
+//    return   fn;
+// })() 
+// fn();   
+// fn();   
+
+
+// function love1(){
+//      var num = 223;
+//      var me1 = function() {
+//            console.log(num);
+//      }
+//      num++;
+//      return me1;
+// }
+// var loveme1 = love1();
+// loveme1();   
+
+
+
+// function fun(n,o) {
+//     console.log(o);
+//     return {
+//          fun:function(m) {
+//                return fun(m,n);
+//          }
+//     };
+// }
+// var a = fun(0);  {}
+// a.fun(1); 
+// a.fun(2);  
+// a.fun(3); 
+// var b = fun(0).fun(1).fun(2).fun(3); 
+// var c = fun(0).fun(1);  
+// c.fun(2);  
+// c.fun(3);  
+
+
+// function fn(){
+//    var arr = [];
+//    for(var i = 0;i < 7;i ++){
+// 	 arr[i] = function(){
+// 		 return i;
+// 	 }
+//    }
+//    return arr;
+// }
+// var list = fn();
+// for(var i = 0,len = 5;i < len ; i ++){
+//    console.log(list[i]());
+// }  
+
+// function fn(){
+//   var arr = [];
+//   for(var i = 0;i < 5;i ++){
+// 	arr[i] = (function(i){
+// 		return function (){
+// 			return i;
+// 		};
+// 	})(i);
+//   }
+//   return arr;
+// }
+// var list = fn();
+// for(var i = 0,len = list.length;i < len ; i ++){
+//   console.log(list[i]());
+// }  
+</script>
+</html>

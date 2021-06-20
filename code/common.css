@@ -1,0 +1,48 @@
+.father {
+    background-color: #000;
+    /* 1.给父元素加overflowhidden  */
+    /* overflow: hidden; */
+    display: table;
+    margin-bottom:30px;
+}
+
+.father  .son1 ,
+.father  .son2 {
+    height: 300px;
+    width: 600px;
+    float: left;
+    background-color: blueviolet;
+}
+.father .son2 {
+    background-color: aqua;
+}
+/* 2  使用after微元素清除浮动 */
+/* .clearfix::after  {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix {
+    zoom: 1;
+} */
+
+/* 3.使用双微元素清除浮动 */
+/* .clearfix::before,.clearfix::after{
+    height: 0;
+    content: '';
+    display: table;
+}
+
+.clearfix::after{
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}  */
+
+/* 4 使用额外标签法在最后一个浮动元素后添加一个div 然后清除左右的浮动 */
+/* .father .son3  {
+    clear: both;
+} */
